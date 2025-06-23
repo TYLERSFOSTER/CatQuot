@@ -19,13 +19,15 @@ common warnings
 
 library
     import:           warnings
-    exposed-modules:
-        MyLib
-        MLGraph.Feature
-        MLGraph.FeatureSet
+    exposed-modules:  MyLib
+                      Utils.RandomComplex
+                      MLGraph.Feature
+                      MLGraph.FeatureSet
     -- other-modules:
     -- other-extensions:
-    build-depends:    base ^>=4.18.3.0
+    build-depends:  base ^>=4.18.3.0,
+                    vector,
+                    random >= 1.1
     hs-source-dirs:   src
     default-language: Haskell2010
 

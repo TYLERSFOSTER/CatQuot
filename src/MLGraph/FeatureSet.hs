@@ -1,47 +1,42 @@
-module FeatureSet (isOfDimension, generateNodeFeatureSet, NodeFeatureSet(..), nodeFeatureSet) where
+module MLGraph.FeatureSet (isOfDimension, nodeFeatureSet, NodeFeatureSet(..), nodeFeatureSet) where
 
-import Feature (NodeFeature, fromList, modulus)
+import Utils.RandomComplex (randomUnitComplexList)
+import MLGraph.Feature (NodeFeature, dimension, fromList)
 import Data.Complex
 import qualified Data.Vector as V
 
 -- Membership predicate
-isPeriodicOf :: Int -> Signal -> Bool
-isPeriodicOf p s =
-  let l = Signal.modulus s
-  in all (\i -> s V.! i == s V.! ((i + p) `mod` l)) [0 .. l - 1]
+isOfDimension :: Int -> (NodeFeature -> Bool)
+isOfDimension d f =
+  length f == d
 
 -- Finite sampling generator
-generatePeriodicSignals :: Int -> Int -> [[Complex Double]] -> [Signal]
-generatePeriodicSignals l p patterns =
-  [ fromList (take l (cycle pat)) 
-  | pat <- patterns, length pat == p
-  ]
+generateFeatureSet :: Int -> IO (V.Vector (Complex Double))
+generateFeatureSet d = do
+  xs <- randomUnitComplexList d
+  return $ V.fromList xs
 
 -- Abstract signal set representation
-data SignalSet = SignalSet
-  { setModulus  :: Int
-  , setMultiplier :: Int
-  , setPeriod :: Int
-  , generate :: [Signal]
-  , isMember :: Signal -> Bool
+data NodeFeatureSet = NodeFeatureSet
+  { nodeName :: String
+  , ambientDimension  :: Int
+  , generate :: IO (V.Vector (Complex Double))
+  , isMember :: NodeFeature -> Bool
   }
 
 -- Equality only considers structural fields, not the isMember function
-instance Eq SignalSet where
+instance Eq NodeFeatureSet where
   a == b =
-    setModulus a == setModulus b &&
-    setMultiplier a == setMultiplier b &&
-    setPeriod a == setPeriod b
+    nodeName a == nodeName b && 
+    ambientDimension a == ambientDimension b
 
-periodicSet :: Int -> Int -> [[Complex Double]] -> SignalSet
-periodicSet l m patterns = 
-  let thisModulus     = l
-      thisMultiplier  = m
-      thisPeriod      = l `div` gcd m l
-  in SignalSet
-    { setModulus    = thisModulus
-    , setMultiplier = thisMultiplier
-    , setPeriod     = thisPeriod
-    , isMember      = isPeriodicOf thisPeriod
-    , generate      = generatePeriodicSignals thisModulus thisPeriod patterns
+nodeFeatureSet :: String -> Int -> NodeFeatureSet
+nodeFeatureSet n d = 
+  let thisNodeName          = n
+      thisAmbientDimension  = d
+  in NodeFeatureSet
+    { nodeName          = thisNodeName
+    , ambientDimension  = thisAmbientDimension
+    , generate          = generateFeatureSet thisAmbientDimension
+    , isMember          = isOfDimension thisAmbientDimension
     }
