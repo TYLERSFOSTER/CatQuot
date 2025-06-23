@@ -1,26 +1,54 @@
-dist
+#-------------------------------------------------------------------------------
+# Build artifacts (Cabal, GHC, Stack)
+#-------------------------------------------------------------------------------
+/dist-newstyle/
+dist/
 dist-*
-cabal-dev
+cabal-dev/
+build/
+.stack-work/
+
+# GHC intermediate files
 *.o
 *.hi
+*.dyn_o
+*.dyn_hi
 *.hie
 *.chi
 *.chs.h
-*.dyn_o
-*.dyn_hi
-.hpc
-.hsenv
-.cabal-sandbox/
-cabal.sandbox.config
-*.prof
-*.aux
-*.hp
-*.eventlog
-.stack-work/
-cabal.project.local
-cabal.project.local~
+.hpc/
+.hsenv/
 .HTF/
 .ghc.environment.*
-/dist-newstyle/
-/*.drawio.bkp
-/*.drawio.dtmp
+*.eventlog
+*.hp
+*.prof
+*.aux
+
+# Cabal sandbox/config files
+.cabal-sandbox/
+cabal.sandbox.config
+cabal.project.local
+cabal.project.local~
+cabal.project.freeze
+
+#-------------------------------------------------------------------------------
+# Editor & OS-specific files
+#-------------------------------------------------------------------------------
+.vscode/
+*.swp
+*.swo
+*~
+\#*\#
+.DS_Store
+
+#-------------------------------------------------------------------------------
+# Draw.io autosave/backup files
+#-------------------------------------------------------------------------------
+*.drawio.bkp
+*.drawio.dtmp
+
+#-------------------------------------------------------------------------------
+# Output artifacts (optional: if not tracked)
+#-------------------------------------------------------------------------------
+*.pdf
