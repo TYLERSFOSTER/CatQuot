@@ -19,7 +19,10 @@ common warnings
 
 library
     import:           warnings
-    exposed-modules:  MyLib
+    exposed-modules:
+        MyLib
+        MLGraph.Feature
+        MLGraph.FeatureSet
     -- other-modules:
     -- other-extensions:
     build-depends:    base ^>=4.18.3.0
