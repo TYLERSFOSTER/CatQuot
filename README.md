@@ -9,8 +9,12 @@
 # CatQuot: Graph ML as Categorical ML
 Package for HNSW-style searching in Haskell categories using a tower of quotient categories. Inspired by Abdul Malik's PhD thesis.
 
+# TODOs
+- Add downward-facing black arrows in Graph U-Net drawings.
+- Add `QuotTower` scripts
+
 # Features
-## Hierarchical Navigable Small *Passes*
+## Hierarchical Navigable Small *Message Passing*
 ### Graph U-Nets
 
 <p align="center">
