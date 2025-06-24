@@ -1,5 +1,5 @@
-module EdgeHom
-  ( EdgeHom(..)
+module EdgePassHom
+  ( EdgePassHom(..)
   , identity
   , compose
   , applyHom
@@ -9,23 +9,22 @@ module EdgeHom
 
 import FeatureSet (NodeFeatureSet(..))
 import Feature (NodeFeature)
-import Utils.RandomMatrix (randomUnitComplexHMatrix)
+import Utils.RandomMatrix (randomUnitComplexHMatrix, multiplyMatrixVector)
 import qualified Data.Vector as V
 import Data.Complex (Complex(..))
 import Numeric.LinearAlgebra
 
 -- Includes a multiplier, which describes how to reindex the signal
-data EdgeHom = EdgeHom
+data EdgePassHom = EdgePassHom
   { source :: NodeFeatureSet
   , target :: NodeFeatureSet
-  , matrix :: Int
+  , matrix :: IO (Matrix (Complex Double))
   }
 
 -- Applies the morphism to a signal by reindexing
-applyHom :: CharacterHom -> Signal -> Signal
-applyHom (CharacterHom src _ m) s =
-  let l = setModulus src
-      len = V.length s
+applyHom :: EdgePassHom -> NodeFeature -> NodeFeature
+applyHom (EdgePassHom src _ m) f =
+  let g = multiplyMatrixVector m f
   in V.generate len $ \n ->
        let i = (m * n) `mod` l
        in s V.! i
