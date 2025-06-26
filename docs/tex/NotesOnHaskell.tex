@@ -42,10 +42,99 @@
 
 \maketitle
 
+\tableofcontents
+
 \begin{section}{From category theory to Haskell}
 
-\begin{subsection}{Types versus sets-with-structure}
+\begin{subsection}{Types versus sets-with-added-structure}
+One major source of confusion when trying to understand Haskell from a category theoretical perspective is the role that {\em types} play in Haskell.
+
+In many ways, category theory overrides the Bourbakian picture of mathematics, in which everything is build up from {\em sets with added structure} \cite{ToolObject} \cite{Geometric}. Still, sets with added structure do form the most familiar examples of categories, and a large part of Haskell focusses on categories that arise from sets with added structure.
+
+But Haskell discusses this notion of ``sets with added structure'' using the language of types, not the language of set theory. My rough heuristic for how to understand the two perspectives is:
+\begin{center}
+The {\em type} associated to a {\em set} is like the predicate that defines the set.
+\end{center}
+\begin{center}
+The {\em set} associated to a {\em type} is the set of all instances of that type.
+\end{center}
+
+\noindent
+Think about how things work in an object-oriented scripting language like JavaScript or Python: the user defines new types by describing what internal structure and internal constraints any new instance of this type must have. It's a recipe for how new elements of some not-yet-fully-populated set will come into being.
+
+To give some concrete examples of what this distinction might mean from a mathematical perspective, [...]
+
+\begin{center}
+
+\begin{tabular}{c|c}
+{\bf type} & {\bf set}
+\\[4pt]
+\hline\hline
+\\[-10pt]
+nonnegative integer less than $n$ & $\{0,1,2,\dots,n-1\}$
+\\[4pt]
+\hline
+\\[-10pt]
+$n$-entry real coordinate vector
+&
+$\mathbb{R}^n$
+\\[4pt]
+\hline
+\\[-10pt]
+prime ideal in $\mathbb{C}[x_1,x_2,\dots,x_n]$
+&
+$\mathbb{A}^{\!n}_{\mathbb{C}}$
+\\[4pt]
+\hline
+\\[-10pt]
+$m\!\times\!n$-matrix with entries in $\mathbb{F}_{\!q}$
+&
+$\text{Mat}_{m,n}(\mathbb{F}_{\!q})$
+\\[4pt]
+\hline
+\\[-10pt]
+list of characters
+&
+$\{\text{all characters}\}\ =\ \overset{\infty}{\underset{n=0}{\bigsqcup}}\text{Char}^{\times n}$
+\\[4pt]
+\hline
+\\[-10pt]
+program executable on present machine
+&
+$\{\!$
+programs executable on present machine
+$\!\}$
+\\[4pt]
+\end{tabular}
+
+\end{center}
+
+\noindent
+This distinction might seem a bit odd from a purely mathematical perspective, but it makes more sense from a computer science perspective. In most computing environments, it is {\em much} easier to specify a condition approximating ``$n$-entry real coordinate vector'' than it is to instantiate the set $\mathbb{R}^{n}$.
+
 [...]
+
+\begin{subsubsection}{What types and sets-with-added-structure reject from one another.}
+[...]
+
+\begin{enumerate}
+\item
+Sets with ``hard-to-know'' defining conditions
+\item
+Functions without defining formulae.
+\end{enumerate}
+
+[...]
+
+\begin{enumerate}
+\item
+Distinct proofs of identity
+\item
+Recursive types?
+\end{enumerate}
+
+\end{subsubsection}
+
 \end{subsection}
 
 \begin{subsection}{Comparing $\mathbf{Hask}_\text{tot}$ to $\bold{Sets}$}
@@ -53,6 +142,22 @@
 
 \begin{subsection}{The category $\text{IO}(\mathbf{Hask}_\text{tot})$.}
 [...]
+
+\begin{subsubsection}{Morphisms in $\text{IO}(\mathbf{Hask}_{\text{tot}})$ as program-level combinators}
+\begin{enumerate}
+\item
+Mapping the result (\texttt{fmap}, \texttt{>>=})
+\item
+Replacing the behavior (\texttt{const}, \texttt{ioB})
+\item
+Wrapping the behavior (\texttt{try}, \texttt{catch}, \texttt{log})
+\item
+Scheduling or deferring execution
+\item
+Composing effects (\texttt{StateT}, \texttt{ReaderT})
+\end{enumerate}
+\end{subsubsection}
+
 \end{subsection}
 
 \begin{subsection}{The Kleisli category $\mathbf{Kl}_\text{IO}$.}
@@ -61,13 +166,9 @@
 
 \end{section}
 
-\cite{NeoRie}
-\cite{Geo}
-\cite{Cohn}
-
 
 \bibliographystyle{alpha}
-\bibliography{./bib/dissig}
+\bibliography{./bib/CatQuot}
 
 \end{document}
 
