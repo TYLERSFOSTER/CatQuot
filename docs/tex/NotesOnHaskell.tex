@@ -4,7 +4,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
-
+\usepackage{minted}
 \usepackage{hyperref}
 \usepackage{tikz}
 
@@ -34,6 +34,7 @@
 % Define the new "Problem" environment
 \newtheorem{problem}{Problem}[subsection]
 
+
 \begin{document}
 
 \title{Notes on Haskell}
@@ -62,12 +63,12 @@ The {\em set} associated to a {\em type} is the set of all instances of that typ
 \noindent
 Think about how things work in an object-oriented scripting language like JavaScript or Python: the user defines new types by describing what internal structure and internal constraints any new instance of this type must have. It's a recipe for how new elements of some not-yet-fully-populated set will come into being.
 
-To give some concrete examples of what this distinction might mean from a mathematical perspective, [...]
+Here's a little 2-column, informal dictionary to try to give some examples of what the distinction between types and sets-with-added-structure might be stressed from the perspective of familiar mathematical objects:
 
 \begin{center}
 
 \begin{tabular}{c|c}
-{\bf type} & {\bf set}
+{\bf type} & {\bf set with added structure}
 \\[4pt]
 \hline\hline
 \\[-10pt]
@@ -95,7 +96,7 @@ $\text{Mat}_{m,n}(\mathbb{F}_{\!q})$
 \\[-10pt]
 list of characters
 &
-$\{\text{all characters}\}\ =\ \overset{\infty}{\underset{n=0}{\bigsqcup}}\text{Char}^{\times n}$
+$\{\text{all lists of characters}\}\ =\ \overset{\infty}{\underset{n=0}{\bigsqcup}}\text{Char}^{\times n}$
 \\[4pt]
 \hline
 \\[-10pt]
@@ -119,18 +120,38 @@ This distinction might seem a bit odd from a purely mathematical perspective, bu
 
 \begin{enumerate}
 \item
-Sets with ``hard-to-know'' defining conditions
+{\bf Sets with axiomatic existence.}
 \item
-Functions without defining formulae.
+{\bf Sets with ``hard-to-know'' defining conditions.}
+\item
+{\bf Functions without defining formulae.}
 \end{enumerate}
 
 [...]
 
 \begin{enumerate}
 \item
-Distinct proofs of identity
+{\bf Distinct proofs of identity.}
 \item
-Recursive types?
+{\bf Recursive types.}
+[...nested lists...] [...bad Russell sets...]]
+\item
+{\bf Types that interact with physical/temporal reality.}
+    \begin{minted}{python}
+class Counter:
+    count = 0
+
+    def __init__(self):
+        self.__class__.increment()
+
+    @classmethod
+    def increment(cls):
+        cls.count += 1
+
+    @classmethod
+    def reset(cls):
+        cls.count = 0
+    \end{minted}
 \end{enumerate}
 
 \end{subsubsection}
