@@ -23,9 +23,17 @@ build/
 *.eventlog
 *.hp
 *.prof
-*.aux
 
+# Specific build artifacts from this project
+dist-newstyle/**/build/*/CatQuot-*/build/
+dist-newstyle/**/build/*/CatQuot-*/libHSCatQuot*
+dist-newstyle/**/package.conf.inplace/
+dist-newstyle/**/cache/
+dist-newstyle/**/tmp/
+
+#-------------------------------------------------------------------------------
 # Cabal sandbox/config files
+#-------------------------------------------------------------------------------
 .cabal-sandbox/
 cabal.sandbox.config
 cabal.project.local
@@ -52,12 +60,21 @@ Thumbs.db
 *.drawio.dtmp
 
 #-------------------------------------------------------------------------------
-# Output artifacts (optional: if not tracked)
+# LaTeX build artifacts
 #-------------------------------------------------------------------------------
-# *.pdf
-*.svg
-# *.png
-*.eps
+docs/tex/*.aux
+docs/tex/*.log
+docs/tex/*.out
+docs/tex/*.synctex.gz
+
+# Optional: uncomment if LaTeX PDF output is not tracked
+# docs/tex/*.pdf
+
+#-------------------------------------------------------------------------------
+# Optional: untracked figures (if generated)
+# docs/images/*.jpg
+# docs/images/*.pdf
+# docs/images/*.xml
 
 #-------------------------------------------------------------------------------
 # App and test binaries (if you add executables)
@@ -72,6 +89,14 @@ test/*.o
 test/*.dyn_o
 test/*.dyn_hi
 
+# Also ignore compiled artifacts in src and test recursively
+src/**/*.hi
+src/**/*.o
+src/**/*.dyn_*
+test/**/*.hi
+test/**/*.o
+test/**/*.dyn_*
+
 #-------------------------------------------------------------------------------
 # Misc
 #-------------------------------------------------------------------------------
@@ -79,3 +104,4 @@ test/*.dyn_hi
 /tags.temp
 /.haskell-language-server-wrapper
 /.hie-bios
+.coverage/

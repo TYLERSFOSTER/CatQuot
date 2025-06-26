@@ -10,18 +10,28 @@
 Package for HNSW-style searching in Haskell categories using a tower of quotient categories. Inspired by Abdul Malik's PhD thesis.
 
 # TODOs
+- Figure out exactly how morphisms in $\mathbf{Kl}_{IO}$ are supposed to be managed/composed in `Main.hs`
+- Convert type `IO (Matrix (Complex Double))` to `Matrix (Complex Double)` in `RandomMatrix.hs`
 - Add a version of `NodeFeature` generator that takes feature as input instead of random initilaization
 - Finish `EdgePassHom.hs`, currently at complex matrix multiplication
 - Build message passing modules:
   - `MessPassDiagram.hs`just the category diagram (no composition) as graph
   - `MessPassCat.hs` impose categorical structure
   - `MessPassGraph.hs` introduces an underlying, guiding graph object
-- Add `QuotTower` subpackage
-  - Add single level-to-level quotienting module
+- Add `QuotTower` subpackage.
+  - Add single level-to-level quotienting module.
+- Add discussion of relationship to k-WL in `README.md`. 
+
 
 # Features
+## Categorical Message Passing
+[...]
+### Graphs, Diagrams, and Categories
+[...]
 ## Hierarchical Navigable Small *Message Passing*
+[...]
 ### "Graph U-Nets"
+[...]
 
 <p align="center">
   <picture>
@@ -34,7 +44,12 @@ Package for HNSW-style searching in Haskell categories using a tower of quotient
   "Graph U-Net"
 </p>
 
-## Categorical Message Passing
+### Relationship to Higher-Order Weisfeiler-Leman (*k*-WL) Algorithms
+[...]
+
 ## Quotient-Based, Hierarchical Category/Graph Searching
+[...]
 ### Search
+[...]
 ### Simplicial Set Builder
+[...]
