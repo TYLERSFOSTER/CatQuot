@@ -19,6 +19,7 @@ library
     exposed-modules:   MyLib
                        MLGraph.Feature
                        MLGraph.FeatureSet
+                       MLGraph.EdgePassHom
                        MLGraph.MessPassCat
                        MLGraph.MessPassDiag
                        MLGraph.QuotTower.Quot
@@ -55,6 +56,7 @@ test-suite catquot-test
                        Utils.RandomMatrixSpec
                        MLGraph.FeatureSpec
                        MLGraph.FeatureSetSpec
+                       MLGraph.EdgePassHomSpec
     build-depends:     base,
                        CatQuot,
                        hmatrix,

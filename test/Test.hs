@@ -11,3 +11,4 @@ main = hspec $ do
   Utils.RandomMatrixSpec.spec
   MLGraph.FeatureSpec.spec
   MLGraph.FeatureSetSpec.spec
+  MLGraph.EdgePassHomSpec.spec
