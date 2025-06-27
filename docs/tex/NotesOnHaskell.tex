@@ -181,8 +181,35 @@ Composing effects (\texttt{StateT}, \texttt{ReaderT})
 
 \end{subsection}
 
+\begin{subsection}{Other examples}
+\begin{enumerate}
+\item
+\texttt{Maybe}	Failure without error
+\item
+\texttt{Either}	Failure with error
+\item
+\texttt{Reader}	Read-only environment
+\item
+\texttt{State}	Stateful computation
+\item
+\texttt{Writer}	Logging
+\item
+\texttt{Cont}	Continuation-passing
+\item
+\texttt{STM}
+\end{enumerate}
+\end{subsection}
+
 \begin{subsection}{The Kleisli category $\mathbf{Kl}_\text{IO}$.}
 [...]
+\end{subsection}
+
+\end{section}
+
+\begin{section}{Haskell and optimization}
+[...]
+
+\begin{subsection}{Optimization between $\mathbf{Kl}_{\text{IO}}$ and $\mathbf{Hask}_{\text{tot}}$}
 \end{subsection}
 
 \end{section}
