@@ -13,7 +13,7 @@ isOfDimension d f =
 data NodeFeatureSet = NodeFeatureSet
   { nodeName :: String
   , ambientDimension  :: Int
-  , generate :: V.Vector (Complex Double)
+  , featureSet :: [V.Vector (Complex Double)]
   , isMember :: NodeFeature -> Bool
   }
 
@@ -23,13 +23,14 @@ instance Eq NodeFeatureSet where
     nodeName a == nodeName b && 
     ambientDimension a == ambientDimension b
 
-nodeFeatureSet :: String -> Int -> NodeFeatureSet
-nodeFeatureSet n d = 
+nodeFeatureSet :: String -> Int -> [V.Vector (Complex Double)] -> NodeFeatureSet
+nodeFeatureSet n d f = 
   let thisNodeName          = n
       thisAmbientDimension  = d
+      thisFeatureSet        = f
   in NodeFeatureSet
     { nodeName          = thisNodeName
     , ambientDimension  = thisAmbientDimension
-    -- , generate          = generateFeatureSet thisAmbientDimension
+    , featureSet        = thisFeatureSet
     , isMember          = isOfDimension thisAmbientDimension
     }
