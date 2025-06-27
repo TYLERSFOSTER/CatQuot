@@ -12,43 +12,54 @@ build-type:         Simple
 extra-doc-files:    CHANGELOG.md
 
 common warnings
-    ghc-options: -Wall
+    ghc-options:       -Wall
 
 library
-    import:           warnings
-    exposed-modules:  MyLib
-                      MLGraph.Feature
-                      MLGraph.FeatureSet
-                      MLGraph.MessPassDiag
-                      MLGraph.MessPassCat
-                      MLGraph.QuotTower.Quot
-                      MLGraph.QuotTower.Tower
-    build-depends:    base ^>=4.18.3.0,
-                      vector,
-                      random >= 1.1,
-                      hmatrix
-    hs-source-dirs:   src
-    default-language: Haskell2010
-
+    import:            warnings
+    exposed-modules:   MyLib
+                       MLGraph.Feature
+                       MLGraph.FeatureSet
+                       MLGraph.MessPassCat
+                       MLGraph.MessPassDiag
+                       MLGraph.QuotTower.Quot
+                       MLGraph.QuotTower.Tower
+    hs-source-dirs:    src
+    build-depends:     base ^>=4.18.3.0,
+                       hmatrix,
+                       hspec-discover,
+                       random >= 1.1,
+                       vector
+    default-language:  Haskell2010
 
 executable catquot-app
-    import:           warnings
-    main-is:          Main.hs
-    hs-source-dirs:   app
-    build-depends:    base ^>=4.18.3.0,
-                      CatQuot,
-                      vector,
-                      random,
-                      hmatrix
-    default-language: Haskell2010
-    other-modules:    Utils.RandomMatrix
-                      Utils.RandomComplex
+    import:            warnings
+    main-is:           Main.hs
+    hs-source-dirs:    app
+    other-modules:     Utils.RandomComplex
+                       Utils.RandomMatrix
+    build-depends:     base ^>=4.18.3.0,
+                       CatQuot,
+                       hmatrix,
+                       random,
+                       vector
+    default-language:  Haskell2010
 
-test-suite QuotCat-test
-    import:           warnings
-    type:             exitcode-stdio-1.0
-    hs-source-dirs:   test
-    main-is:          Main.hs
-    build-depends:    base ^>=4.18.3.0,
-                      CatQuot
-    default-language: Haskell2010
+test-suite catquot-test
+    type:              exitcode-stdio-1.0
+    main-is:           Test.hs
+    hs-source-dirs:    test
+                       app
+    other-modules:     Utils.RandomComplex
+                       Utils.RandomComplexSpec
+                       Utils.RandomMatrix
+                       Utils.RandomMatrixSpec
+                       MLGraph.FeatureSpec
+                       MLGraph.FeatureSetSpec
+    build-depends:     base,
+                       CatQuot,
+                       hmatrix,
+                       hspec,
+                       hspec-discover,
+                       random,
+                       vector
+    default-language:  Haskell2010
