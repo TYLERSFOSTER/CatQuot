@@ -23,6 +23,9 @@ build/
 *.eventlog
 *.hp
 *.prof
+*.a              # static libraries
+*.so             # shared libraries (Linux)
+*.dylib          # shared libraries (macOS)
 
 # Local config and inplace build artifacts
 dist-newstyle/**/build/*/CatQuot-*/build/
@@ -30,6 +33,8 @@ dist-newstyle/**/build/*/CatQuot-*/libHSCatQuot*
 dist-newstyle/**/package.conf.inplace/
 dist-newstyle/**/cache/
 dist-newstyle/**/tmp/
+*/catquot-app    # compiled executable (deep path)
+catquot-app      # compiled executable (root path)
 
 # Optional: cache/artifacts not useful in version control
 /dist-newstyle/**/elaborated-plan
@@ -95,6 +100,7 @@ docs/tex/*.fdb_latexmk
 app/**/*.hi
 app/**/*.o
 app/**/*.dyn_*
+app/**/catquot-app     # in case the binary is emitted deep in app/
 
 test/**/*.hi
 test/**/*.o
