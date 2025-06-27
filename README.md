@@ -10,9 +10,6 @@
 Package for HNSW-style searching in Haskell categories using a tower of quotient categories. Inspired by Abdul Malik's PhD thesis.
 
 # TODOs
-- Figure out exactly how morphisms in $\mathbf{Kl}_{IO}$ are supposed to be managed/composed in `Main.hs`
-- Convert type `IO (Matrix (Complex Double))` to `Matrix (Complex Double)` in `RandomMatrix.hs`
-- Add a version of `NodeFeature` generator that takes feature as input instead of random initilaization
 - Finish `EdgePassHom.hs`, currently at complex matrix multiplication
 - Build message passing modules:
   - `MessPassDiagram.hs`just the category diagram (no composition) as graph
