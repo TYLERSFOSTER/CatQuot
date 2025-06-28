@@ -10,14 +10,16 @@
 Package for HNSW-style searching in Haskell categories using a tower of quotient categories. Inspired by Abdul Malik's PhD thesis.
 
 # TODOs
-- Finish `EdgePassHom.hs`, currently at complex matrix multiplication
-- Build message passing modules:
-  - `MessPassDiagram.hs`just the category diagram (no composition) as graph
-  - `MessPassCat.hs` impose categorical structure
-  - `MessPassGraph.hs` introduces an underlying, guiding graph object
-- Add `QuotTower` subpackage.
-  - Add single level-to-level quotienting module.
-- Add discussion of relationship to k-WL in `README.md`. 
+- Build `QuotTower` subpackage.
+  - Build single level-to-level quotienting $\mathbf{Hask}_{tot}$-module
+  - Build full tower $\mathbf{Hask}_{tot}$-module
+- Write `QuotTower` message-passing $\mathbf{Kl}_{IO}$-module
+  - [...]
+- Set up backprop-based optimazation $\mathbf{Kl}_{IO}$-module
+  - I suspect there's a general template for this. Find it.
+- Add more details to this `README.md`
+  - Describe central abstraction in `QuotTower` a bit.
+  - Add discussion of relationship to k-WL in `README.md`. 
 
 
 # Features

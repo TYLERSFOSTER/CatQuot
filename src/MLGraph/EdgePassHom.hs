@@ -2,16 +2,16 @@ module MLGraph.EdgePassHom
   ( EdgePassHom(..)
   , identity
   , compose
-  , applyHom
+  , applyMorphism
   , applyIfMember
-  , mkHom
+  , mkMorphism
   ) where
 
 import MLGraph.FeatureSet (NodeFeatureSet(..))
 import MLGraph.Feature (NodeFeature)
 import qualified Data.Vector as V
 import Data.Complex (Complex)
-import Numeric.LinearAlgebra (Matrix, (<>))
+import Numeric.LinearAlgebra (Matrix)
 import qualified Numeric.LinearAlgebra as LA
 
 -- A morphism between NodeFeatureSets
@@ -22,17 +22,17 @@ data EdgePassHom = EdgePassHom
   }
 
 -- Applies the morphism to a *single* feature vector
-applyHom :: EdgePassHom -> NodeFeature -> NodeFeature
-applyHom (EdgePassHom _ _ m) v =
+applyMorphism :: EdgePassHom -> NodeFeature -> NodeFeature
+applyMorphism (EdgePassHom _ _ m) v =
   V.fromList . LA.toList $ m LA.#> LA.fromList (V.toList v)
 
 -- Applies the morphism to all feature vectors in the source set
 applyFeatureSet :: EdgePassHom -> [NodeFeature] -> [NodeFeature]
-applyFeatureSet hom = map (applyHom hom)
+applyFeatureSet hom = map (applyMorphism hom)
 
 -- Create a morphism if dimensions agree
-mkHom :: NodeFeatureSet -> NodeFeatureSet -> Matrix (Complex Double) -> Maybe EdgePassHom
-mkHom src tgt m =
+mkMorphism :: NodeFeatureSet -> NodeFeatureSet -> Matrix (Complex Double) -> Maybe EdgePassHom
+mkMorphism src tgt m =
   let dSrc = ambientDimension src
       dTgt = ambientDimension tgt
       (rows, cols) = LA.size m
@@ -58,5 +58,5 @@ compose (EdgePassHom b1 c m2) (EdgePassHom a b2 m1)
 applyIfMember :: EdgePassHom -> NodeFeature -> Maybe NodeFeature
 applyIfMember hom v =
   if isMember (source hom) v
-    then Just (applyHom hom v)
+    then Just (applyMorphism hom v)
     else Nothing

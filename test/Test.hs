@@ -12,3 +12,4 @@ main = hspec $ do
   MLGraph.FeatureSpec.spec
   MLGraph.FeatureSetSpec.spec
   MLGraph.EdgePassHomSpec.spec
+  MLGraph.MessPassDiagSpec.spec
