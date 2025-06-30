@@ -83,12 +83,12 @@ taking $X_{u}\mapsto X_{v}$
 
 [...]
 
-$$q_{\ast}\phi_{u,v}\ \ =\ \ \frac{1}{\ \ \left|q^{-1}(u)\right|\cdot\left|q^{-1}(v)\right|\ \ }\sum_{a\in q^{-1}(u)}\sum_{b\in q^{-1}(v)}\!\!\phi_{a,b}$$
+$$q_{\ast}\phi_{u,v}\ \ =\ \ \frac{1}{\ \ \left|q^{-1}(u)\right|\cdot\left|q^{-1}(v)\right|\ \ }\sum_{a\in q^{-1}(u)}\sum_{b\in q^{-1}(v)}\phi_{a,b}$$
 
 #### Cross-terms in quotients of message-passing networks
 [...]
 
-$$q_{\ast}\phi_{u,v}(q_{\ast}X_{u})\ \ =\ \ \frac{1}{\ \ \left|q^{-1}(u)\right|^2\cdot\left|q^{-1}(v)\right|\ \ }\sum_{a,b\in q^{-1}(u)}\sum_{c\in q^{-1}(v)}\!\!\phi_{a,c}\big(\psi_{b}(X_{b})\big)$$
+$$q_{\ast}\phi_{u,v}(q_{\ast}X_{u})\ \ =\ \ \frac{1}{\ \ \left|q^{-1}(u)\right|^2\cdot\left|q^{-1}(v)\right|\ \ }\sum_{a,b\in q^{-1}(u)}\sum_{c\in q^{-1}(v)}\phi_{a,c}\big(\psi_{b}(X_{b})\big)$$
 
 It's important to realize here that under any reasonable optimization procedure, the entries in the feature vectors $q_\ast X_{v}$ and in the message passing matrices $q_{\ast}\phi_{u,v}$ change at each epoch. This has the potential to make the specifics of quotienting maps irrelevant (just replace them all with randomly initialized matrices).
 
