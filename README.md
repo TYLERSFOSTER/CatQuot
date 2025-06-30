@@ -60,7 +60,7 @@ $$q_{\ast}X:\ H_0\longrightarrow\mathbb{R}^d$$
 
 [...]
 
-$$(q_{\ast}X)_{v}=\int_{q^{-1}(v)} \psi_{u}(X_u)du$$
+$$(q_{\ast}X)_v = \int_{q^{-1}(v)} \psi_u(X_u)\,du$$
 
 [...]
 
