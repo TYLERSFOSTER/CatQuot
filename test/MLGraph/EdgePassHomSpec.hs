@@ -34,12 +34,12 @@ spec :: Spec
 spec = do
   describe "mkMorphism" $ do
     it "constructs a valid EdgePassHom if dimensions agree" $ do
-      let result = EPHom.mkMorphism testSourceSet testTargetSet testMatrix
+      let result = EPHom.mkMorphism testSourceSet testTargetSet "test_node" testMatrix
       isJust result `shouldBe` True
 
     it "fails to construct EdgePassHom if dimensions don't agree" $ do
       let badMatrix = matrixFromLists [[1, 0]]
-      isNothing (EPHom.mkMorphism testSourceSet testTargetSet badMatrix) `shouldBe` True
+      isNothing (EPHom.mkMorphism testSourceSet testTargetSet "test_edge" badMatrix) `shouldBe` True
 
 
   describe "identity" $ do
@@ -49,8 +49,8 @@ spec = do
 
   describe "compose" $ do
     it "composes two compatible morphisms correctly" $ do
-      let Just h1 = EPHom.mkMorphism testSourceSet testTargetSet testMatrix
-      let Just h2 = EPHom.mkMorphism testTargetSet testSourceSet testMatrix
+      let Just h1 = EPHom.mkMorphism testSourceSet testTargetSet "test_edge" testMatrix
+      let Just h2 = EPHom.mkMorphism testTargetSet testSourceSet "test_edge" testMatrix
       let Just composed = EPHom.compose h2 h1  -- h2 ∘ h1 = identity
       let idMat = ident 2 :: Matrix (Complex Double)
       EPHom.matrix composed `shouldSatisfy` (== idMat)
@@ -67,18 +67,18 @@ spec = do
 
   describe "applyMorphism" $ do
     it "applies the matrix correctly to a vector" $ do
-      let Just hom = EPHom.mkMorphism testSourceSet testTargetSet testMatrix
+      let Just hom = EPHom.mkMorphism testSourceSet testTargetSet "test_edge" testMatrix
           vec = unitVec [1 :+ 0, 2 :+ 0]
           result = EPHom.applyMorphism hom vec
       result `shouldBe` unitVec [2 :+ 0, 1 :+ 0]
 
   describe "applyIfMember" $ do
     it "applies hom if the vector is in source set" $ do
-      let Just hom = EPHom.mkMorphism testSourceSet testTargetSet testMatrix
+      let Just hom = EPHom.mkMorphism testSourceSet testTargetSet "test_edge" testMatrix
           vec = head (featureSet testSourceSet)
       EPHom.applyIfMember hom vec `shouldBe` Just (EPHom.applyMorphism hom vec)
 
     it "returns Nothing if the vector is not in source set" $ do
-      let Just hom = EPHom.mkMorphism testSourceSet testTargetSet testMatrix
+      let Just hom = EPHom.mkMorphism testSourceSet testTargetSet "test_edge" testMatrix
           vec = unitVec [1 :+ 0]  -- wrong dimension
       EPHom.applyIfMember hom vec `shouldBe` Nothing
