@@ -46,19 +46,19 @@ Package for HNSW-style searching in Haskell categories using a tower of quotient
 
 ### Quotients of message-passing networks
 [...]
-$$\mathscr{F}:\ G_0\longrightarrow \mathbb{R}^{d}$$
+$$X:\ G_0\longrightarrow \mathbb{R}^{d}$$
 [...]
 $$q:\ G_{\ast}\longrightarrow H_\ast$$
 [...]
-$$q_{\ast}\mathscr{F}:\ H_0\longrightarrow\mathbb{R}^d$$
+$$q_{\ast}X:\ H_0\longrightarrow\mathbb{R}^d$$
 [...]
-$$\mathscr{F}_v=\int_{q^{-1}(v)}\Psi_{u}(\mathscr{F}_u)du$$
+$$X_v=\int_{q^{-1}(v)}\Psi_{u}(X_u)du$$
 [...]
-$$\mathscr{F}_v=\frac{1}{\left|q^{-1}(v)\right|}\!\sum_{u\in q^{-1}(v)}\Psi_{u}(\mathscr{F}_u)$$
+$$X_v=\frac{1}{\left|q^{-1}(v)\right|}\!\sum_{u\in q^{-1}(v)}\Psi_{u}(X_u)$$
 One major simplifiying assumption we can make is to use the same $\Psi_u$ for all $u\in q^{-1}(v)$. In this case, we get a sinle transformation matrix $\Psi_{v}$ that transforms the an aggregate of all features in $q^{-1}(v)$: 
-$$x_H\ \ =\ \ \Psi_{v}\left(\frac{1}{\ \ \!\left|q^{-1}(v)\right|\ \ \!}\sum_{u\in q^{-1}(v)}\!\!\mathscr{F}_u\ \right)$$
+$$x_H\ \ =\ \ \Psi_{v}\left(\frac{1}{\ \ \!\left|q^{-1}(v)\right|\ \ \!}\sum_{u\in q^{-1}(v)}\!\!X_u\ \right)$$
 [...]
-$$\Phi_{u,v}:\mathscr{F}_{u}\longrightarrow\mathscr{F}_{v}$$
+$$\Phi_{u,v}:X_{u}\longrightarrow X_{v}$$
 [...]
 $$\text{pr}_{\ast}\Phi_{u,v}
 \ \ =\ \ 
