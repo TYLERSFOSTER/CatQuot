@@ -15,6 +15,7 @@ data NodeFeatureSet = NodeFeatureSet
   , ambientDimension  :: Int
   , featureSet :: [V.Vector (Complex Double)]
   , isMember :: NodeFeature -> Bool
+  , fiberNodes :: [String]
   }
 
 -- Equality only considers structural fields, not the isMember function
@@ -44,4 +45,5 @@ nodeFeatureSet n d f =
     , ambientDimension = thisAmbientDimension
     , featureSet       = thisFeatureSet
     , isMember         = isOfDimension thisAmbientDimension
+    , fiberNodes       = []
     }
