@@ -60,25 +60,25 @@ $$q_{\ast}X:\ H_0\longrightarrow\mathbb{R}^d$$
 
 [...]
 
-$$(q_{\ast}X)_{v}=\int_{q^{-1}(v)} \Psi_{u}(X_u)du$$
+$$(q_{\ast}X)_{v}=\int_{q^{-1}(v)} \psi_{u}(X_u)du$$
 
 [...]
 
-$$(q_{\ast}X)_{v}=\frac{1}{\left|q^{-1}(v)\right|}\!\sum_{u\in q^{-1}(v)}\Psi_{u}(X_u)$$
+$$(q_{\ast}X)_{v}=\frac{1}{\left|q^{-1}(v)\right|}\!\sum_{u\in q^{-1}(v)}\psi_{u}(X_u)$$
 
-One major simplifiying assumption we can make is to use the same $\Psi_u$ for all $u\in q^{-1}(v)$. In this case, we get a sinle transformation matrix $\Psi_{v}$ that transforms the an aggregate of all features in $q^{-1}(v)$:
+One major simplifiying assumption we can make is to use the same $\psi_u$ for all $u\in q^{-1}(v)$. In this case, we get a sinle transformation matrix $\psi_{v}$ that transforms the an aggregate of all features in $q^{-1}(v)$:
 
-$$(q_{\ast} X)_v\ \ =\ \ \Psi_{v}\left(\frac{1}{\ \ \!\left|q^{-1}(v)\right|\ \ \!}\sum_{u\in q^{-1}(v)}\!\!X_u\ \right)$$
+$$(q_{\ast} X)_v\ \ =\ \ \psi_{v}\left(\frac{1}{\ \ \!\left|q^{-1}(v)\right|\ \ \!}\sum_{u\in q^{-1}(v)}\!\!X_u\ \right)$$
 
 [...]
 
-$$\Phi_{u,v}:\mathbb{R}^{d}\longrightarrow\mathbb{R}^{d}$$
+$$\phi_{u,v}:\mathbb{R}^{d}\longrightarrow\mathbb{R}^{d}$$
 
 taking $X_{u}\mapsto X_{v}$
 
 [...]
 
-$$q_{\ast}\Phi_{q(u),q(v)}\ \ =\!\!\sum_{\Phi\in G_{1}(u,v)}\!\!\Phi_{u,v}$$
+$$q_{\ast}\phi_{q(u),q(v)}\ \ =\!\!\sum_{\phi\in G_{1}(u,v)}\!\!\phi_{u,v}$$
 
 [...]
 ### "Graph U-Nets"
