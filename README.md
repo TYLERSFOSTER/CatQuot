@@ -46,21 +46,23 @@ Package for HNSW-style searching in Haskell categories using a tower of quotient
 
 ### Quotients of message-passing networks
 [...]
-$$\mathcal{F}:\ G_0\longrightarrow \mathbb{R}^{d}$$
+$$\mathscr{F}:\ G_0\longrightarrow \mathbb{R}^{d}$$
 [...]
 $$q:\ G_{\ast}\longrightarrow H_\ast$$
 [...]
-$$q_{\ast}\mathcal{F}:\ H_0\longrightarrow\mathbb{R}^d$$
+$$q_{\ast}\mathscr{F}:\ H_0\longrightarrow\mathbb{R}^d$$
 [...]
-$$\mathcal{F}_v\ \ =\ \ \int_{q^{-1}(v)}\Psi_{u}(\mathcal{F}_u)\ du$$
+$$\mathscr{F}_v\ \ =\ \ \int_{q^{-1}(v)}\Psi_{u}(\mathscr{F}_u)\ du$$
 [...]
-$$\mathcal{F}_v\ \ =\ \ \frac{1}{\ \ \!\left|q^{-1}(v)\right|\ \ \!}\!\sum_{u\in q^{-1}(v)}\!\!\!\Psi_{u}(\mathcal{F}_u)$$
+$$\mathscr{F}_v\ \ =\ \ \frac{1}{\ \ \!\left|q^{-1}(v)\right|\ \ \!}\!\sum_{u\in q^{-1}(v)}\!\!\!\Psi_{u}(\mathscr{F}_u)$$
 One major simplifiying assumption we can make is to use the same $\Psi_u$ for all $u\in q^{-1}(v)$. In this case, we get a sinle transformation matrix $\Psi_{v}$ that transforms the an aggregate of all features in $q^{-1}(v)$: 
-$$x_H\ \ =\ \ \Psi_{v}\left(\frac{1}{\ \ \!\left|q^{-1}(v)\right|\ \ \!}\sum_{u\in q^{-1}(v)}\!\!\mathcal{F}_u\ \right)$$
+$$x_H\ \ =\ \ \Psi_{v}\left(\frac{1}{\ \ \!\left|q^{-1}(v)\right|\ \ \!}\sum_{u\in q^{-1}(v)}\!\!\mathscr{F}_u\ \right)$$
 [...]
-$$\Phi:\mathcal{F}_{u}\longrightarrow\mathcal{F}_{v}$$
+$$\Phi_{u,v}:\mathscr{F}_{u}\longrightarrow\mathscr{F}_{v}$$
 [...]
-$$\text{pr}_{\ast}\Phi$$
+$$\text{pr}_{\ast}\Phi_{u,v}
+\ \ =\ \ 
+$$
 [...]
 ### "Graph U-Nets"
 [...]
