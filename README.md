@@ -60,11 +60,11 @@ $$q_{\ast}X:\ H_0\longrightarrow\mathbb{R}^d$$
 
 [...]
 
-$$(q_{\ast}X)_{v}\ \ =\ \ \int_{q^{-1}(v)} \Psi_{u}(X_u) du$$
+$$(q_{\ast}X)_{v}=\int_{q^{-1}(v)} \Psi_{u}(X_u)du$$
 
 [...]
 
-$$(q_{\ast}X)_{v}\ \ =\ \ \frac{1}{\left|q^{-1}(v)\right|}\!\sum_{u\in q^{-1}(v)}\Psi_{u}(X_u)$$
+$$(q_{\ast}X)_{v}=\frac{1}{\left|q^{-1}(v)\right|}\!\sum_{u\in q^{-1}(v)}\Psi_{u}(X_u)$$
 
 One major simplifiying assumption we can make is to use the same $\Psi_u$ for all $u\in q^{-1}(v)$. In this case, we get a sinle transformation matrix $\Psi_{v}$ that transforms the an aggregate of all features in $q^{-1}(v)$:
 
