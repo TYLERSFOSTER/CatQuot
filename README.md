@@ -64,7 +64,7 @@ $$(q_{\ast}X)_{v}=\int_{q^{-1}(v)}\psi_{u}(X_{u})du$$
 
 [...]
 
-$$(q_{\ast}X)_{v}=\left(\sum_{u\in q^{-1}(v)}\psi_{u}(X_{u})\right)\Big/\# q^{-1}(v)$$
+$$(q_{\ast} X)_{v}=\frac{1}{N} \sum_{u\in q^{-1}(v)}\psi_{u}(X_{u})$$
 
 One major simplifiying assumption we can make is to use the same $\psi_u$ for all $u\in q^{-1}(v)$. In this case, we get a sinle transformation matrix $\psi_{v}$ that transforms the an aggregate of all features in $q^{-1}(v)$:
 
