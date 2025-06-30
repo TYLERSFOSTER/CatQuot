@@ -21,7 +21,6 @@ library
                        MLGraph.FeatureSet
                        MLGraph.EdgePassHom
                        MLGraph.MessPassDiag
-                       MLGraph.MessPassCat
                        MLGraph.QuotTower.Quot
                        MLGraph.QuotTower.Tower
     hs-source-dirs:    src
@@ -63,6 +62,7 @@ test-suite catquot-test
                        MLGraph.FeatureSpec
                        MLGraph.FeatureSetSpec
                        MLGraph.EdgePassHomSpec
+                       MLGraph.MessPassDiagSpec
     build-depends:     base,
                        CatQuot,
                        hmatrix,
