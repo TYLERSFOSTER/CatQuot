@@ -32,10 +32,37 @@ $$\partial_{0},\ \partial_{1}:\ G_{1}\longrightarrow G_{0}$$
 
 $$\partial_0\times\partial_1:\ \ G_1\longrightarrow G_{0}\times G_{0}$$
 
+### Message passing networks.
+[...]
+
+$$X:\ G_0\longrightarrow \mathbb{R}^{d}$$
+
+[...]
+
+$$\phi_{u,v}:\mathbb{R}^{d}\longrightarrow\mathbb{R}^{d}$$
+
+taking $X_{u}\mapsto X_{v}$
+
 ## Hierarchical Navigable Small *Message Passing*
 [...]
 ### Quotient graphs
-[...]
+Given a graph $G_{\ast}$ and a subset of vertices $S\subset G_{0}$, the *full subgraph of* $G_{\ast}$ on $S$, denoted $G[S]_{\ast}$, is the subgraph with vertex set
+
+$$G[S]_{0}\ \ =\ \ S$$
+
+and with edge set consisting of all edges in $G_{1}$ ith both source and target in $S$:
+
+$$G[S]_{1}\ \ =\ \ {(\partial_{0}\times\partial_{1})}^{-1}(S\times S)$$
+
+For the purposes of this package, we define the *quotient of a graph* $G_{\ast}$ *along a subset of vertices* $S\subset G_{0}$ to be the graph ${G/S}_{\ast}$ with vertex set
+
+$${G/S}_{0}\ \ =\ \ \{\ast\}\ \sqcup\ (G_{0}\smallsetminus S)$$
+
+and with edge set
+
+$${G/S}_{1}\ \ =\ \ G_1\smallsetminus G[S]_{1}$$
+
+where a edge in ${G/S}_{1}$ connects to the new point $\{\ast\}\subset {G/S}_{0}$ wherever it previously connected to a point in $S$.
 
 <p align="center">
   <picture>
@@ -50,10 +77,6 @@ $$\partial_0\times\partial_1:\ \ G_1\longrightarrow G_{0}\times G_{0}$$
 [...]
 
 ### Quotients of message-passing networks
-
-[...]
-
-$$X:\ G_0\longrightarrow \mathbb{R}^{d}$$
 
 [...]
 
@@ -74,12 +97,6 @@ $$q_{\ast} X_{v}\ \ =\ \ \frac{1}{\ \ \left|q^{-1}(v)\right|\ \ } \sum_{u\in q^{
 One major simplifiying assumption we can make is to use the same $\psi_u$ for all $u\in q^{-1}(v)$. In this case, we get a sinle transformation matrix $\psi_{v}$ that transforms the an aggregate of all features in $q^{-1}(v)$:
 
 $$q_{\ast}X_{v}\ \ =\ \ \psi_{v}\left(\frac{1}{\ \ \left|q^{-1}(v)\right|\ \ }\sum_{u\in q^{-1}(v)}X_u\ \right)$$
-
-[...]
-
-$$\phi_{u,v}:\mathbb{R}^{d}\longrightarrow\mathbb{R}^{d}$$
-
-taking $X_{u}\mapsto X_{v}$
 
 [...]
 
