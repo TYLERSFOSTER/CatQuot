@@ -28,9 +28,9 @@ Package for HNSW-style searching in Haskell categories using a tower of quotient
 ### Graphs, Diagrams, and Categories
 [...]
 
-$$\partial_{0},\ \partial_{1}:\ G_{1}\longrightarrow G_{0}$$
+$$\delta_{0},\ \delta_{1}:\ G_{1}\longrightarrow G_{0}$$
 
-$$\partial_0\times\partial_1:\ \ G_1\longrightarrow G_{0}\times G_{0}$$
+$$\delta_0\times\delta_1:\ \ G_1\longrightarrow G_{0}\times G_{0}$$
 
 ### Message passing networks.
 [...]
@@ -52,7 +52,7 @@ $$G[S]_{0}\ \ =\ \ S$$
 
 and with edge set consisting of all edges in $G_{1}$ ith both source and target in $S$:
 
-$$G[S]{}_{1}\ \ =\ \ (\partial{}_{0}\times\partial{}_{1}){}^{-1}(S\times S)$$
+$$G[S]{}_{1}\ \ =\ \ (\delta{}_{0}\times\delta{}_{1}){}^{-1}(S\times S)$$
 
 For the purposes of this package, we define the *quotient of a graph* $G_{\ast}$ *along a subset of vertices* $S\subset G_{0}$ to be the graph ${G/S}_{\ast}$ with vertex set
 
