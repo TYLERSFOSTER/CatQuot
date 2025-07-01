@@ -52,7 +52,7 @@ $$G[S]_{0}\ \ =\ \ S$$
 
 and with edge set consisting of all edges in $G_{1}$ ith both source and target in $S$:
 
-$$G[S]_{1}\ \ =\ \ (\partial_{0}\times \partial_{1})^{-1}(S\times S)$$
+$$G[S]_{1}\ \ =\ \ \big\{e\in G_{1}:\partial_0(e),\partial_{1}(e)\in S\big\}$$
 
 For the purposes of this package, we define the *quotient of a graph* $G_{\ast}$ *along a subset of vertices* $S\subset G_{0}$ to be the graph ${G/S}_{\ast}$ with vertex set
 
